@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Existentialmutt4gr8justis</title>
+    <title>4gr8justis</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
   <body>
-    <%= yield %>
+    <div class="container px-8 pb-8">
+      <header class="flex mb-8 items-center">
+        <h1 class="text-6xl">4gr8justis</h1>
+        <%= image_pack_tag "you_have_no_chance.png", class: "ml-auto" %>
+      </header>
+      <%= yield %>
+
+    </div>
+    
   </body>
 </html>

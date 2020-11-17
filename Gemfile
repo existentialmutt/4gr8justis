@@ -53,3 +53,19 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "standard", group: [:development, :test]
 gem "stimulus_reflex", "~> 3.3"
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
+gem "harvesting", "~> 0.5.0"
+
+gem "dotenv-rails", "~> 2.7"
+
+gem "view_component", "~> 2.21"
+
+gem "inline_view_component", "~> 0.2.0"

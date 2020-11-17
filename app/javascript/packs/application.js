@@ -13,16 +13,19 @@ require("channels")
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-import '../stylesheets/application.scss'
-import { defineCustomElements, setAssetPath } from '@shoelace-style/shoelace'
 
-setAssetPath(document.currentScript.src)
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
-// This will import all shoelace web components for convenience.
-// Check out the webpack documentation below on selective imports.
-// https://shoelace.style/getting-started/installation?id=using-webpack
-defineCustomElements()
+// import '../stylesheets/application.scss'
+// import { defineCustomElements, setAssetPath } from '@shoelace-style/shoelace'
+// 
+// setAssetPath(document.currentScript.src)
+// 
+// // This will import all shoelace web components for convenience.
+// // Check out the webpack documentation below on selective imports.
+// // https://shoelace.style/getting-started/installation?id=using-webpack
+// defineCustomElements()
 
 import "controllers"
+require("css/application.scss")
