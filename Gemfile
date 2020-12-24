@@ -68,4 +68,4 @@ gem "dotenv-rails", "~> 2.7"
 
 gem "view_component", "~> 2.21"
 
-gem "inline_view_component", "~> 0.2.0"
+gem 'inline_view_component'

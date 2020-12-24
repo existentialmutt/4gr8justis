@@ -276,7 +276,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.7)
   factory_bot_rails
   harvesting (~> 0.5.0)
-  inline_view_component (~> 0.2.0)
+  inline_view_component
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
