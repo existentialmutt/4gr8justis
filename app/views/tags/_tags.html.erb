@@ -1,29 +1,12 @@
 <%= turbo_frame_tag "tags" do %>
   <div class="mb-6">
     <h2 class="mb-2">Budgeted Tags</h2>
-      <%- Tag.budgeted.each do |tag| %>
-        <div class="mb-2">
-          <%= render TagComponent.new(tag) do %>
-            #<%= tag.name %>
-          <%- end %>
-          <%= tag.hours_spent %> / <%= tag.budget.round(1) %>  
-        </div>
-
-      <%- end %>
+    <%= render Tag.budgeted %>
   </div>
 
   <div class="mb-6">
     <h2 class="mb-2">Unbudgeted Tags</h2>
-
-    <%- Tag.unbudgeted.each do |tag| %>
-      <div class="mb-2">
-        <%= render TagComponent.new(tag) do %>
-          #<%= tag.name %>
-        <% end %>
-        <%= tag.hours_spent %>      
-      </div>
-
-    <%- end %>
+    <%= render Tag.unbudgeted %>
   </div>
 
   <div class="mt-6">

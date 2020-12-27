@@ -5,6 +5,10 @@ class Tag < ApplicationRecord
   scope :budgeted, -> { where.not(budget: nil) }
   scope :unbudgeted, -> { where(budget: nil) }
 
+  after_update_commit { broadcast_replace_to "tags" }
+
+  validates :budget, presence: true, on: :update
+
   def hours_spent
     time_entries.sum(:hours).round(1)
   end
