@@ -8,7 +8,7 @@
 
 <%= turbo_frame_tag dom_id(tag) do %>
   <div class="block mb-2">
-    <%= link_to edit_tag_path(tag) do %>
+    <%= link_to edit_tag_path(tag), class: "inline-block w-24" do %>
       <div class="c-tag <%= color_class %>">
          #<%= tag.name %>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="20" width="20" class="c-tag__edit">
