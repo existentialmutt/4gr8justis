@@ -37,5 +37,7 @@ class LoadHarvestDataJob < ApplicationJob
     JobStatus.get.update state: "complete"
   rescue
     JobStatus.get.update state: "error"
+  ensure
+    Turbo::StreamsChannel.broadcast_replace_to "tags", target: "tags", partial: "tags/tags"
   end
 end

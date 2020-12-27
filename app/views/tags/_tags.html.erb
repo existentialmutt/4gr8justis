@@ -1,0 +1,44 @@
+<%= turbo_frame_tag "tags" do %>
+  <div class="mb-6">
+    <h2 class="mb-2">Budgeted Tags</h2>
+      <%- Tag.budgeted.each do |tag| %>
+        <div class="mb-2">
+          <%= render TagComponent.new(tag) do %>
+            #<%= tag.name %>
+          <%- end %>
+          <%= tag.hours_spent %> / <%= tag.budget.round(1) %>  
+        </div>
+
+      <%- end %>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="mb-2">Unbudgeted Tags</h2>
+
+    <%- Tag.unbudgeted.each do |tag| %>
+      <div class="mb-2">
+        <%= render TagComponent.new(tag) do %>
+          #<%= tag.name %>
+        <% end %>
+        <%= tag.hours_spent %>      
+      </div>
+
+    <%- end %>
+  </div>
+
+  <div class="mt-6">
+    Data Updated: <%= JobStatus.get.updated_at.strftime("%A %B %-d, %Y %-l:%M %p") %>
+    <br>
+    Job Status: <%= JobStatus.get.state.humanize.titleize %>
+
+    <%- if JobStatus.get.state == "running" %>
+      <%= image_pack_tag "ajax-loader.gif", class: "inline-block ml-2" %>
+    <%- else %>
+      <%=
+        button_to "Update Data from Harvest",
+          update_harvest_data_path,
+          class: "px-5 py-3 mt-3 bg-orange-300 rounded"
+      %>
+    <%- end %>
+  </div>
+<%- end %>

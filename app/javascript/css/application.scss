@@ -1,3 +1,24 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
+
+.c-tag {
+  display: inline-flex;
+  align-items: center;
+  @apply  px-2 mr-6 rounded-full;
+
+  &:hover {
+    @apply mr-0;
+  }
+
+  .c-tag__edit {
+    @apply ml-1;
+    display: none;
+  }
+
+  &:hover .c-tag__edit {
+    display: block;
+  }
+}
+
 @import "tailwindcss/utilities";
+

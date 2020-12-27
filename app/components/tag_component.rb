@@ -1,16 +1,22 @@
 class TagComponent < ApplicationComponent
-  attr_reader :color, :css_class
-  def initialize(color: "blue", css_class: "")
-    @color = color
+  attr_reader :tag
+  def initialize(tag)
+    @tag = tag
   end
 
   def color_class
+    color = tag.budget ? "orange" : "green"
     "bg-#{color}-300"
   end
 
   template <<~ERB
-    <div class="inline-block px-2 rounded-full <%= color_class %> <%= css_class %>">
-      <%= content %>
-    </div>
+    <%= link_to edit_tag_path(tag) do %>
+      <div class="c-tag <%= color_class %>">
+        <%= content %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="20" width="20" class="c-tag__edit">
+          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+        </svg>
+      </div>
+    <% end -%>
   ERB
 end
